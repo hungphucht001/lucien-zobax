@@ -1,0 +1,28 @@
+@import 'variables';
+
+.my-background{
+    background-color: $color_primary !important;
+}
+.nav-item a,
+.logo h3{
+    color: #fff !important;
+}
+.dropdown-menu a{
+    color:#000 !important;
+}
+.table-dark{
+    background-color: #222222;
+    color:rgb(221, 221, 221)
+}
+.title-post{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.table{
+    border: 1px solid #ccc;
+}
+select{
+    outline: none;
+    border: none;
+}
