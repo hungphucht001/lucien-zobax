@@ -1,8 +1,12 @@
 const mongoose = require('mongoose');
+const dotenv = require('dotenv')
+const path = require('path')
+
+dotenv.config({ path: path.join(__dirname,'../../.env')})
 
 async function connect(){
    try{
-    const uri = "mongodb+srv://zobax:ngoclan001@cluster0.cddds.mongodb.net/cozo_blog_aohoa?retryWrites=true&w=majority";
+    const uri = process.env.DATABASE_URL;
        await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });       
        console.log("ok")
    }
