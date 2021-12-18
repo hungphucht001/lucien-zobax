@@ -17,6 +17,7 @@
     "mongoose": "^6.1.2",
     "mongoose-slug-generator": "^1.0.4",
     "morgan": "^1.10.0",
-    "node-sass": "^7.0.0"
+    "node-sass": "^7.0.0",
+    "nodemon": "^2.0.15"
   }
 }
