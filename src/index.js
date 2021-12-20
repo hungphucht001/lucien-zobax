@@ -8,6 +8,12 @@ const db = require('./config/db')
 const dotenv = require('dotenv')
 dotenv.config({ path: path.join(__dirname, '.env') })
 db.connect()
+
+app.use(express.urlencoded({
+    extended:true
+}))
+app.use(express.json())
+
 const PORT = process.env.PORT ||3000
 
 app.engine('.hbs', engine(
