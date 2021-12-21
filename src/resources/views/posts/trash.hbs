@@ -1,10 +1,7 @@
 <div class="container my-5">
     <div class="title title-post">
-        <div>
-			<h4>Danh sách bài viết</h4>
-			<a class="pt-2 d-inline-block" href="/posts/trash">Thùng rác ({{deletedCount}})</a>
-		</div>
-        <a href="/posts/create" class="my-background py-2 px-4 text-white">Add -></a>
+        <h4>Thùng rác của tôi</h4>
+        <a href="/posts" class="my-background py-2 px-4 text-white">Quay lại</a>
     </div>
     <div class="mt-4">
         <table class="table">
@@ -20,9 +17,7 @@
                 </tr>
             </thead>
             <tbody>
-
                 {{#each posts}}
-
                 <tr>
                     <th scope="row">{{sum @index 1}}</th>
                     <td>{{this.title}}</td>
@@ -31,8 +26,8 @@
                     <td>{{this.createdAt}}</td>
                     <td>{{this.updatedAt}}</td>
                     <td>
-                        <a href="/posts/{{this._id}}/edit">Edit</a>
-                        <a href="" data-toggle="modal" data-id="{{this._id}}" data-target="#modal-delete-posts">Xóa</a>
+                        <a href="/posts/{{this._id}}/edit">Khôi phục</a>
+                        <a href="" data-toggle="modal" data-id="{{this._id}}" data-target="#modal-delete-posts">Xóa vĩnh viễn</a>
                     </td>
                 </tr>
                 {{/each}}

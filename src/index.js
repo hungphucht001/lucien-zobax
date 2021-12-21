@@ -8,7 +8,7 @@ const db = require('./config/db')
 const cookieParser = require('cookie-parser')
 const dotenv = require('dotenv')
 const session = require('express-session')
-
+const methodOverride = require('method-override')
 //config dotenv
 dotenv.config({ path: path.join(__dirname, '.env') })
 const PORT = process.env.PORT ||3000
@@ -40,6 +40,9 @@ app.engine('.hbs', engine(
             sum: (a,b)=>a+b
         }
     }));
+
+// override with POST having ?_method=DELETE
+app.use(methodOverride('_method'))
 
 app.use(morgan('combined'))
 

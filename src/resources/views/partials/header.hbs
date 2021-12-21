@@ -1,38 +1,37 @@
-	<!-- Header -->
-	<header class="header-v2 ">
-		<!-- Header desktop -->
-		<div class="container-menu-desktop ">
+<!-- Header -->
+<header class="header-v2 ">
+	<!-- Header desktop -->
+	<div class="container-menu-desktop ">
 
-			<div class="wrap-menu-desktop how-shadow1 my-background">
-				<nav class="limiter-menu-desktop container ">
-					<!-- Logo desktop -->		
-					<a href="/" class="logo">
-						<h3>COZA</h3>
-					</a>
-
-					<!-- Icon header -->
-					<div class="wrap-icon-header flex-w flex-r-m">
-						{{#if user}}
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-								{{user.name}}
-							</a>
-							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="/posts">Quản lý bài viết</a>
-								<a class="dropdown-item" href="/categorys">Quản lý thể loại</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Đổi mật khẩu</a>
-								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="/auth/logout">Logout</a>
-							</div>
-						</li>
-						{{else}}
-						<li class="nav-item">
-							<a href="/auth/login">Đăng nhập</a>
-						</li>
-						{{/if}}
-					</div>
-				</nav>
-			</div>	
-		</div>
-	</header>
+		<div class="wrap-menu-desktop how-shadow1 my-background">
+			<nav class="limiter-menu-desktop container ">
+				<!-- Logo desktop -->		
+				<a href="/" class="logo">
+					<h3>COZA</h3>
+				</a>
+				<!-- Icon header -->
+				<div class="wrap-icon-header flex-w flex-r-m">
+					{{#if user}}
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+							{{user.name}}
+						</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="/posts">Quản lý bài viết</a>
+							<a class="dropdown-item" href="/categorys">Quản lý thể loại</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Đổi mật khẩu</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="/auth/logout">Logout</a>
+						</div>
+					</li>
+					{{else}}
+					<li class="nav-item">
+						<a href="/auth/login">Đăng nhập</a>
+					</li>
+					{{/if}}
+				</div>
+			</nav>
+		</div>	
+	</div>
+</header>

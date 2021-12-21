@@ -18,7 +18,6 @@ class AuthController{
                 if(account)
                 {
                     req.session.user = account
-                    // res.cookie('username', account.username, { signed: true })
                     res.redirect('/posts')
                 }
                 else{
@@ -28,7 +27,7 @@ class AuthController{
     }
     logout(req, res, next){
         req.session.destroy()
-        res.redirect('/accounts/login')
+        res.redirect('/auth/login')
     }
 }
 

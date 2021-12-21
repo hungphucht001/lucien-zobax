@@ -16,6 +16,9 @@ const Post = new Schema({
 })
 
 mongoose.plugin(slug);
-Post.plugin(mongoose_delete);
+Post.plugin(mongoose_delete,{
+    deletedAt:true,
+    overrideMethods: 'all' 
+});
 
 module.exports = mongoose.model('Post',Post);
