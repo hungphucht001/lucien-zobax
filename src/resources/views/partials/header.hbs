@@ -12,9 +12,10 @@
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m">
-						{{!-- <li class="nav-item dropdown">
+						{{#if user}}
+						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-								Hùng trần
+								{{user.name}}
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="/posts">Quản lý bài viết</a>
@@ -22,12 +23,14 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="#">Đổi mật khẩu</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Logout</a>
+								<a class="dropdown-item" href="/auth/logout">Logout</a>
 							</div>
-						</li> --}}
-						<li class="nav-item">
-							<a href="/accounts/login">Đăng nhập</a>
 						</li>
+						{{else}}
+						<li class="nav-item">
+							<a href="/auth/login">Đăng nhập</a>
+						</li>
+						{{/if}}
 					</div>
 				</nav>
 			</div>	

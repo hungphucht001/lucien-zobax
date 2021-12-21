@@ -7,10 +7,10 @@ async function connect(){
    try{
     const uri = process.env.DATABASE_URL;
        await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });       
-       console.log("ok")
+       console.log("Successful mongo connection")
    }
    catch{
-        console.log("failure aaaaaaaaaaaaaaaaaaaaaa")
+        console.log("Mongo connection failed")
    }
 }
 module.exports = {connect}
