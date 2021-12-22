@@ -24,8 +24,8 @@
                     <td>{{this.author.nameAuthor}}</td>
                     <td>{{moment this.deletedAt format = "yyyy-MM-DD"}}</td>
                     <td>
-                        <a href="" class="btn-restore-post"data-id="{{this._id}}">Khôi phục</a>
-                        <a href="" class="btn btn-danger" data-toggle="modal" data-id="{{this._id}}" data-target="#modal-delete-posts">Xóa vĩnh viễn</a>
+                        <a href="" class="btn-restore-post py-2 px-3 my-background text-white" data-id="{{this._id}}">Khôi phục</a>
+                        <a href="" class="py-2 px-3 btn-danger" data-toggle="modal" data-id="{{this._id}}" data-target="#modal-delete-posts">Xóa vĩnh viễn</a>
                     </td>
                 </tr>
                 {{/each}}

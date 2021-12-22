@@ -31,8 +31,8 @@
                     <td>{{moment this.createdAt format = "yyyy-MM-DD"}}</td>
                     <td>{{moment this.updatedAt format = "yyyy-MM-DD"}}</td>
                     <td>
-                        <a href="/posts/{{this._id}}/edit">Edit</a>
-                        <a href="" data-toggle="modal" data-id="{{this._id}}" data-target="#modal-delete-posts">Xóa</a>
+                        <a href="/posts/{{this._id}}/edit"  class="py-2 px-3 my-background text-white">Edit</a>
+                        <a href="" class="py-2 px-3 btn-danger"  data-toggle="modal" data-id="{{this._id}}" data-target="#modal-delete-posts">Xóa</a>
                     </td>
                 </tr>
                 {{/each}}
