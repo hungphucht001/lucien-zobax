@@ -26,7 +26,7 @@
                     <td>{{this.createdAt}}</td>
                     <td>{{this.updatedAt}}</td>
                     <td>
-                        <a href="/posts/{{this._id}}/edit">Khôi phục</a>
+                        <a href="" class="btn-restore-post"data-id="{{this._id}}">Khôi phục</a>
                         <a href="" data-toggle="modal" data-id="{{this._id}}" data-target="#modal-delete-posts">Xóa vĩnh viễn</a>
                     </td>
                 </tr>
@@ -45,28 +45,40 @@
         </button>
       </div>
       <div class="modal-body">
-        Bạn có chắc muốn xóa bài viết này?
+        Nếu xóa sẽ không thể khôi phục. Bạn có chắc muốn xóa không
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button"id="btn-delete-post" class="btn btn-danger">Xóa</button>
+        <button type="button"id="btn-delete-post" class="btn btn-danger">Xóa vĩnh viễn</button>
       </div>
     </div>
   </div>
 </div>
+<form method="post" name="form-restore-post"></form>
 <form method="post" name="form-delete-post"></form>
 <script>
     document.addEventListener('DOMContentLoaded', function(){
         let postId;
+        const formRestorePost = document.forms[name="form-restore-post"]
         const formDeletePost = document.forms[name="form-delete-post"]
-		const btnDeletePost = $('#btn-delete-post')
+	    const btnDeletePost = $('#btn-delete-post')
+        const btnRestorePost = $('.btn-restore-post')
 
         $('#modal-delete-posts').on('show.bs.modal', function (event) {
             const button = $(event.relatedTarget)
             postId = button.data('id')
         })
-		btnDeletePost.on('click', function (event) {
-			formDeletePost.action=`/posts/${postId}?_method=DELETE`
+
+		btnRestorePost.click(function(e){
+			e.preventDefault()
+			const id = $(this).data('id')
+			console.log(id)
+			formRestorePost.action='/posts/'+id+'/restore?_method=PATCH'
+			formRestorePost.submit();
+		})
+
+	  	btnDeletePost.on('click', function (event) {
+			formDeletePost.action=`/posts/${postId}/force?_method=DELETE`
 			formDeletePost.submit()
 		})
     })
