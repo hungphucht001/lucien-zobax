@@ -28,8 +28,8 @@
                     <td>{{this.title}}</td>
                     <td>Otto</td>
                     <td>{{this.author.nameAuthor}}</td>
-                    <td>{{this.createdAt}}</td>
-                    <td>{{this.updatedAt}}</td>
+                    <td>{{moment this.createdAt format = "yyyy-MM-DD"}}</td>
+                    <td>{{moment this.updatedAt format = "yyyy-MM-DD"}}</td>
                     <td>
                         <a href="/posts/{{this._id}}/edit">Edit</a>
                         <a href="" data-toggle="modal" data-id="{{this._id}}" data-target="#modal-delete-posts">Xóa</a>

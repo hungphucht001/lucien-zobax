@@ -1,5 +1,5 @@
 const express = require('express')
-const { engine } = require('express-handlebars')
+const { engine, handlebars } = require('express-handlebars')
 const app = express()
 const morgan = require('morgan')
 const route = require('./route')
@@ -9,6 +9,14 @@ const cookieParser = require('cookie-parser')
 const dotenv = require('dotenv')
 const session = require('express-session')
 const methodOverride = require('method-override')
+const helpers = require('handlebars-helpers')
+(
+    {
+        handlebars: handlebars
+    },
+    ['moment']
+);
+
 //config dotenv
 dotenv.config({ path: path.join(__dirname, '.env') })
 const PORT = process.env.PORT ||3000
@@ -37,7 +45,7 @@ app.engine('.hbs', engine(
     {
         extname: '.hbs',
         helpers:{
-            sum: (a,b)=>a+b
+            sum: (a,b)=>a+b,
         }
     }));
 
