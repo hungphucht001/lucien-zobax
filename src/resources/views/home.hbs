@@ -18,18 +18,7 @@
                         <div class="p-b-63">
                             <a href="{{this.slug}}" class="hov-img0 how-pos5-parent">
                                 <img src="{{this.image}}" alt="IMG-BLOG">
-
-                                <div class="flex-col-c-m size-123 bg9 how-pos5">
-                                    <span class="ltext-107 cl2 txt-center">
-                                        22
-                                    </span>
-
-                                    <span class="stext-109 cl3 txt-center">
-                                        Jan 2018
-                                    </span>
-                                </div>
                             </a>
-
                             <div class="p-t-32">
                                 <h4 class="p-b-15">
                                     <a href="/{{this.slug}}" class="ltext-108 cl2 hov-cl1 trans-04">
@@ -54,7 +43,6 @@
 
                                     <a href="{{this.slug}}" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
                                         Continue Reading
-
                                         <i class="fa fa-long-arrow-right m-l-9"></i>
                                     </a>
                                 </div>
@@ -63,13 +51,13 @@
                     {{/each}}
 
                     <!-- Pagination -->
-                    <div class="flex-l-m flex-w w-full p-t-10 m-lr--7">
-                        <a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7 active-pagination1">
-                            1
+                    <div class="flex-l-m justify-content-between flex-w w-full p-t-10 m-lr--7">
+                        <a href="?page={{pagePrev}}" class="flex-c-m how-pagination1 trans-04 m-all-7">
+                            <<
                         </a>
 
-                        <a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7">
-                            2
+                        <a href="?page={{pageNext}}" class="flex-c-m how-pagination1 trans-04 m-all-7">
+                            >>
                         </a>
                     </div>
                 </div>

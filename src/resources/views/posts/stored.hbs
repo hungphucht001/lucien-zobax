@@ -4,7 +4,7 @@
 			<h4>Danh sách bài viết</h4>
 			<a class="pt-2 d-inline-block" href="/posts/trash">Thùng rác ({{deletedCount}})</a>
 		</div>
-        <a href="/posts/create" class="my-background py-2 px-4 text-white">Add -></a>
+        <a href="/posts/create" class="my-background py-2 px-4 text-white">Add  <i class="fa fa-long-arrow-right m-l-9"></i></a>
     </div>
     <div class="mt-4">
         <table class="table">
@@ -27,10 +27,16 @@
                     <th scope="row">{{sum @index 1}}</th>
                     <td>{{this.title}}</td>
                     <td>Otto</td>
-                    <td>{{this.author.nameAuthor}}</td>
-                    <td>{{moment this.createdAt format = "yyyy-MM-DD"}}</td>
-                    <td>{{moment this.updatedAt format = "yyyy-MM-DD"}}</td>
-                    <td>
+                    <td style="min-width:150px">
+                      {{this.author.nameAuthor}}
+                      </td>
+                    <td style="min-width:120px">
+                      {{moment this.createdAt format = "yyyy-MM-DD"}}
+                      </td>
+                    <td style="min-width:120px">
+                      {{moment this.updatedAt format = "yyyy-MM-DD"}}
+                      </td>
+                    <td style="min-width:150px">
                         <a href="/posts/{{this._id}}/edit"  class="py-2 px-3 my-background text-white">Edit</a>
                         <a href="" class="py-2 px-3 btn-danger"  data-toggle="modal" data-id="{{this._id}}" data-target="#modal-delete-posts">Xóa</a>
                     </td>

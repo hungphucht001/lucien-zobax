@@ -3,10 +3,10 @@ const Post = require('../models/Post')
 const Category = require('../models/Catregory')
 class PostsController{
 
-
+   
     index(req, res, next){
-
-        Promise.all([Post.find({}), Post.countDocumentsDeleted()])
+        console.log(req.session.user._id)
+        Promise.all([Post.find({"author.idAuthor":req.session.user._id}), Post.countDocumentsDeleted({"author.idAuthor":req.session.user._id})])
             .then(([posts, deletedCount]) =>{
                 res.render('posts/stored',{
                     posts: mutipleMongooseToObject(posts),
@@ -72,7 +72,7 @@ class PostsController{
             .catch(next)
     }
     trash(req, res, next) {
-        Post.findDeleted({})
+        Post.findDeleted({"author.idAuthor":req.session.user._id})
         .then(posts =>{
             res.render('posts/trash',{posts: mutipleMongooseToObject(posts)})
             // res.json(mutipleMongooseToObject(posts))
