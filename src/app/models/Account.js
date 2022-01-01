@@ -6,6 +6,7 @@ mongoose.plugin(slug);
 const Account = new Schema({
     name:{type: 'string'},
     username:{type: 'string'},
+    password:{type: 'string'},
 },{
     timestamps:true
 })

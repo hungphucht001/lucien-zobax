@@ -30,7 +30,7 @@ class PostsController{
     store(req, res, next){
 
         const formData = {...req.body}
-        // formData.image = 'https://images.unsplash.com/photo-1636558286997-51038eca6a53?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8N3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
+        formData.image = 'https://images.unsplash.com/photo-1636558286997-51038eca6a53?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8N3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
         console.log(req.session.user)
 
         const user = {...req.session.user}

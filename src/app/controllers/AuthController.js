@@ -11,6 +11,9 @@ class AuthController{
         }
         res.redirect("/posts")
     }
+    signin(req, res, next){
+        res.render('signin',{layout: false})
+    }
 
     loginSubmit(req, res, next){
         Account.findOne({username:req.body.username, password:req.body.password})
@@ -27,6 +30,25 @@ class AuthController{
     }
     logout(req, res, next){
         req.session.destroy()
+        res.redirect('/auth/login')
+    }
+    siginSubmit(req, res, next){
+        const password = req.body.password
+        if(password[0] === password[1]){
+            const data = {
+                name: req.body.name,
+                username: req.body.username, 
+                password: password[0]
+            }
+            const acc = new Account(data)
+            acc.save()
+                .then(()=>{
+                    res.redirect('/auth/login')
+                })
+                .catch(()=>{
+                    res.redirect('/auth/login')
+                })
+        }
         res.redirect('/auth/login')
     }
 }
