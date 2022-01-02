@@ -1,11 +1,13 @@
 const {mutipleMongooseToObject, mongooseToObject} = require('../../util/mongoose')
 const Post = require('../models/Post')
 const Category = require('../models/Catregory')
+const path = require('path')
+const  fs = require('fs');
+
 class PostsController{
 
    
     index(req, res, next){
-        console.log(req.session.user._id)
         Promise.all([Post.find({"author.idAuthor":req.session.user._id}), Post.countDocumentsDeleted({"author.idAuthor":req.session.user._id})])
             .then(([posts, deletedCount]) =>{
                 res.render('posts/stored',{
@@ -29,9 +31,24 @@ class PostsController{
 
     store(req, res, next){
 
+        const ext= path.extname(req.file.originalname)
+        const tempPath = req.file.path
+        const imagePath = tempPath.split('\\').slice(2).join('/') + ext
+
+        if(ext==='.png' || ext==='.jpg' || ext==='.jpeg' || ext==='.gif'){
+            fs.rename(tempPath, tempPath + ext ,function(err){
+                if(err) throw err;
+            });
+          }else{
+              fs.unlink(tempPath,function(){
+                  if(err) throw err;
+                  res.json(500,{error:'Only image files are allowed'});
+              });
+          }
+
+
         const formData = {...req.body}
-        formData.image = 'https://images.unsplash.com/photo-1636558286997-51038eca6a53?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8N3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60'
-        console.log(req.session.user)
+        formData.image = imagePath
 
         const user = {...req.session.user}
 
